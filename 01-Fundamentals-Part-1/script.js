@@ -46,3 +46,7 @@ console.log(BMIMark, BMIJohn);
 
 const markHigherBMI = BMIMark > BMIJohn;
 console.log(markHigherBMI);
+
+/** String and Template Literals */
+const description = `${country} is in ${continent}, and its ${population} million people speak ${language}`;
+console.log(description);
