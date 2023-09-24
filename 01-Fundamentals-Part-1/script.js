@@ -23,3 +23,12 @@ language = "Vietnamese";
 // const continent = "Asia";
 // const isIsland = true;
 // isIsland = false;
+
+/** Basic Operators */
+console.log(population / 2);
+population++;
+console.log(population / 2);
+console.log(population > 6);
+console.log(population > 33);
+const description1 = country + " is in " + continent + ", and its " + population + " million people speak " + language;
+console.log(description1);
