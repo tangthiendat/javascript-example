@@ -16,3 +16,10 @@ let language;
 // console.log(typeof population);
 // console.log(typeof country);
 // console.log(typeof language);
+
+/** let, const and var */
+language = "Vietnamese";
+// const country = "Vietnam";
+// const continent = "Asia";
+// const isIsland = true;
+// isIsland = false;
