@@ -69,12 +69,19 @@ console.log(5 + 6 + "4" + 9 - 4 - 2); //=> 1143
 /** Equality Operators: == vs. === */
 // const numNeighbors = prompt("How many neighbor countries does your country have");
 
-const numNeighbors = Number(prompt("How many neighbor countries does your country have"));
+// const numNeighbors = Number(prompt("How many neighbor countries does your country have"));
 
-if (numNeighbors === 1) {
-    console.log("Only 1 border!");
-} else if (numNeighbors > 1) {
-    console.log("More than 1 border");
+// if (numNeighbors === 1) {
+//     console.log("Only 1 border!");
+// } else if (numNeighbors > 1) {
+//     console.log("More than 1 border");
+// } else {
+//     console.log("No borders");
+// }
+
+/** Logical Operators */
+if (language === "English" && population < 50 && !isIsland) {
+    console.log(`You should live in ${country}`);
 } else {
-    console.log("No borders");
+    console.log(`${country} does not meet your criteria`);
 }
