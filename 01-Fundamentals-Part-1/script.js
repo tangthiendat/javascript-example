@@ -122,3 +122,6 @@ switch (language) {
         console.log("Great language too :D");
         break;
 }
+
+/** The Conditional Operator */
+console.log(`${country}'s population is ${population > 33 ? "above" : "below"} average`);
