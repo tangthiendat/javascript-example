@@ -17,17 +17,27 @@ function percentageOfWorld1(population) {
 }
 
 const percVietnam1 = percentageOfWorld1(97);
-const percAmerica1 = percentageOfWorld1(333);
+const percUSA1 = percentageOfWorld1(333);
 const percChina1 = percentageOfWorld1(1412);
 
-console.log(percVietnam1, percAmerica1, percChina1);
+console.log(percVietnam1, percUSA1, percChina1);
 
 const percentageOfWorld2 = function (population) {
     return (population / 7900) * 100;
 };
 
 const percVietnam2 = percentageOfWorld2(97);
-const percAmerica2 = percentageOfWorld2(333);
+const percUSA2 = percentageOfWorld2(333);
 const percChina2 = percentageOfWorld2(1412);
 
-console.log(percVietnam2, percAmerica2, percChina2);
+console.log(percVietnam2, percUSA2, percChina2);
+
+/** Arrow Functions */
+
+const percentageOfWorld3 = (population) => (population / 7900) * 100;
+
+const percVietnam3 = percentageOfWorld3(97);
+const percUSA3 = percentageOfWorld3(333);
+const percChina3 = percentageOfWorld3(1412);
+
+console.log(percVietnam3, percUSA3, percChina3);
