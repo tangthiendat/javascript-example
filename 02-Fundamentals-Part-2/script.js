@@ -77,7 +77,7 @@ checkWinner(avgDolphins2, avgKoalas2);
 /** Introduction to Arrays */
 const populations = [97, 333, 1412, 126];
 console.log(populations);
-console.log(populations.length == 4);
+console.log(populations.length === 4);
 const percentages = [
     percentageOfWorld1(populations[0]),
     percentageOfWorld1(populations[1]),
@@ -85,3 +85,19 @@ const percentages = [
     percentageOfWorld1(populations[populations.length - 1]),
 ];
 console.log(percentages);
+
+/** Basic Array Operations */
+const neighbors = ["China", "Laos", "Cambodia"];
+
+neighbors.push("Utopia");
+console.log(neighbors);
+
+neighbors.pop();
+console.log(neighbors);
+
+if (!neighbors.includes("Germany")) {
+    console.log("Probably not a central European country :D");
+}
+
+neighbors[neighbors.indexOf("China")] = "Chinaaaaaaa";
+console.log(neighbors);
