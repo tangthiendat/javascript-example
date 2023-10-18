@@ -73,3 +73,15 @@ checkWinner(avgDolphins1, avgKoalas1);
 const avgDolphins2 = calcAverage(85, 54, 41);
 const avgKoalas2 = calcAverage(23, 34, 27);
 checkWinner(avgDolphins2, avgKoalas2);
+
+/** Introduction to Arrays */
+const populations = [97, 333, 1412, 126];
+console.log(populations);
+console.log(populations.length == 4);
+const percentages = [
+    percentageOfWorld1(populations[0]),
+    percentageOfWorld1(populations[1]),
+    percentageOfWorld1(populations[2]),
+    percentageOfWorld1(populations[populations.length - 1]),
+];
+console.log(percentages);
