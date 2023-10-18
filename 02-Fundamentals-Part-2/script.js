@@ -52,3 +52,24 @@ const describePopulation = function (country, population) {
 console.log(describePopulation("Vietnam", 97));
 console.log(describePopulation("USA", 333));
 console.log(describePopulation("China", 1412));
+
+/** Coding Challenge #1 */
+function calcAverage(firstTime, secondTime, thirdTime) {
+    return (firstTime + secondTime + thirdTime) / 3;
+}
+
+const checkWinner = function (avgDolphins, avgKoalas) {
+    if (avgDolphins > avgKoalas && avgDolphins >= 2 * avgKoalas) {
+        console.log(`Dolphins win (${avgDolphins} vs. ${avgKoalas})`);
+    } else if (avgKoalas > avgDolphins && avgKoalas >= 2 * avgDolphins) {
+        console.log(`Koalas win (${avgKoalas} vs. ${avgDolphins})`);
+    }
+};
+
+const avgDolphins1 = calcAverage(44, 23, 71);
+const avgKoalas1 = calcAverage(65, 54, 49);
+checkWinner(avgDolphins1, avgKoalas1);
+
+const avgDolphins2 = calcAverage(85, 54, 41);
+const avgKoalas2 = calcAverage(23, 34, 27);
+checkWinner(avgDolphins2, avgKoalas2);
