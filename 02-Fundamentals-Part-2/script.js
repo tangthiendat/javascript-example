@@ -190,3 +190,14 @@ for (let i = 0; i < populations.length; i++) {
     percentages2.push(percentageOfWorld1(populations[i]));
 }
 console.log(percentages2);
+
+/** Looping Backwards And Loops in Loops */
+
+const listOfNeighbors = [["Canada", "Mexico"], ["Spain"], ["Norway", "Sweden", "Russia"]];
+for (let i = 0; i < listOfNeighbors.length; i++) {
+    let result = "Neighbor: ";
+    for (let j = 0; j < listOfNeighbors[i].length; j++) {
+        result += listOfNeighbors[i][j] + " ";
+    }
+    console.log(result);
+}
