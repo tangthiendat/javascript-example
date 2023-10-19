@@ -178,3 +178,8 @@ if (mark.bmi > john.bmi) {
 } else if (john.bmi > mark.bmi) {
     console.log(`${john.fullName}'s BMI (${john.bmi} is higher than ${mark.fullName}'s (${mark.bmi}))!`);
 }
+
+/** The for Loop */
+for (let order = 1; order <= 50; order++) {
+    console.log(`Voter number ${order} is currently voting`);
+}
