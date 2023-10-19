@@ -33,7 +33,6 @@ const percChina2 = percentageOfWorld2(1412);
 console.log(percVietnam2, percUSA2, percChina2);
 
 /** Arrow Functions */
-
 const percentageOfWorld3 = (population) => (population / 7900) * 100;
 
 const percVietnam3 = percentageOfWorld3(97);
@@ -43,7 +42,6 @@ const percChina3 = percentageOfWorld3(1412);
 console.log(percVietnam3, percUSA3, percChina3);
 
 /** Functions Calling Other Functions */
-
 const describePopulation = function (country, population) {
     const percentage = percentageOfWorld1(population);
     return `${country} has ${population} million people, which is about ${percentage}% of the world.`;
@@ -192,12 +190,18 @@ for (let i = 0; i < populations.length; i++) {
 console.log(percentages2);
 
 /** Looping Backwards And Loops in Loops */
-
 const listOfNeighbors = [["Canada", "Mexico"], ["Spain"], ["Norway", "Sweden", "Russia"]];
 for (let i = 0; i < listOfNeighbors.length; i++) {
-    let result = "Neighbor: ";
     for (let j = 0; j < listOfNeighbors[i].length; j++) {
-        result += listOfNeighbors[i][j] + " ";
+        console.log(`Neighbor: ${listOfNeighbors[i][j]}`);
     }
-    console.log(result);
 }
+
+/** The while loop */
+let i = 0;
+const percentages3 = [];
+while (i < populations.length) {
+    percentages3.push(percentageOfWorld1(populations[i]));
+    i++;
+}
+console.log(percentages3);
