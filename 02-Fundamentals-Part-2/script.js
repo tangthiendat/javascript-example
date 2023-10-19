@@ -117,7 +117,18 @@ console.log(total);
 const myCountry = {
     country: "Vietnam",
     capital: "Hanoi",
-    language: "Vietnamese",
+    language: "vietnamese",
     population: 97,
     neighbors: ["China", "Laos", "Cambodia"],
 };
+console.log(myCountry);
+
+/** Dot vs. Bracket Notation */
+console.log(
+    `${myCountry.country} has ${myCountry.population} million of ${myCountry.language}-speaking people, ${myCountry.neighbors.length} neighboring countries and a capital call ${myCountry.capital}`
+);
+
+myCountry.population += 2;
+console.log(myCountry);
+myCountry["population"] -= 2;
+console.log(myCountry);
