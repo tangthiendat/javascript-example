@@ -183,3 +183,10 @@ if (mark.bmi > john.bmi) {
 for (let order = 1; order <= 50; order++) {
     console.log(`Voter number ${order} is currently voting`);
 }
+
+/** Looping Arrays, Breaking and Continuing */
+const percentages2 = [];
+for (let i = 0; i < populations.length; i++) {
+    percentages2.push(percentageOfWorld1(populations[i]));
+}
+console.log(percentages2);
