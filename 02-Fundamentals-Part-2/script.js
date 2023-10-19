@@ -120,6 +120,15 @@ const myCountry = {
     language: "vietnamese",
     population: 97,
     neighbors: ["China", "Laos", "Cambodia"],
+
+    describe: function () {
+        console.log(
+            `${this.country} has ${this.population} million of ${this.language}-speaking people, ${this.neighbors.length} neighboring countries and a capital call ${this.capital}`
+        );
+    },
+    checkIsland: function () {
+        this.isIsland = neighbors.length == 0 ? true : false;
+    },
 };
 console.log(myCountry);
 
@@ -132,3 +141,8 @@ myCountry.population += 2;
 console.log(myCountry);
 myCountry["population"] -= 2;
 console.log(myCountry);
+
+/** Object Methods */
+myCountry.describe();
+myCountry.checkIsland();
+console.log(myCountry.isIsland);
