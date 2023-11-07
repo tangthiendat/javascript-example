@@ -42,9 +42,9 @@ const restaurant = {
 };
 
 /** Destructuring Arrays */
-const arr = [1, 2, 3];
-const [x, y, z] = arr;
-console.log(x, y, z);
+// const arr = [1, 2, 3];
+// const [x, y, z] = arr;
+// console.log(x, y, z); // 1, 2, 3
 
 const [starter, mainCourse] = restaurant.order(1, 1);
 console.log(starter, mainCourse);
@@ -88,8 +88,8 @@ const {
 console.log(restaurantName, hours, tags);
 
 //Default values
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
 
 //Mutating the variables
 let a = 111;
@@ -103,3 +103,35 @@ const {
   fri: { open: o, close: c },
 } = restaurant.openingHours;
 console.log(o, c);
+
+/** The Spread Operator (...) */
+const arr = [8, 9, 10];
+const newArr = [1, 2, ...arr];
+console.log(newArr); // [1, 2, 8, 9, 10]
+console.log(...newArr); //1, 2, 8, 9, 10
+
+const newMenu = [...restaurant.mainMenu, 'Gnooci'];
+console.log(newMenu);
+
+//Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+console.log(mainMenuCopy);
+
+//Join 2 arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+//Iterable: arrays, strings, maps, sets. NOT objects
+const str = 'Dat';
+const letter = [...str, '', 'Mr.'];
+console.log(letter);
+console.log(...str);
+
+//Objects
+const newRestaurant = { foundIn: 1998, ...restaurant, founder: 'Guiseppe' };
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
