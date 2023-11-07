@@ -39,6 +39,10 @@ const restaurant = {
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
   },
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
 /** Destructuring Arrays */
@@ -92,11 +96,11 @@ console.log(restaurantName, hours, tags);
 // console.log(menu, starters);
 
 //Mutating the variables
-let a = 111;
-let b = 999;
-const obj = { a: 22, b: 10, c: 5 };
-({ a, b } = obj);
-console.log(a, b);
+// let a = 111;
+// let b = 999;
+// const obj = { a: 22, b: 10, c: 5 };
+// ({ a, b } = obj);
+// console.log(a, b);
 
 //Nested objects
 const {
@@ -135,3 +139,34 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'Ristorante Roma';
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
+
+/** Rest pattern and parameters */
+//1) Destructuring
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+//Objects
+const { weekend, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+//2) Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+
+add(2, 9); //11
+add(7, 5, 2, 1); //15
+const x = [15, 4, 1];
+add(...x); //20
+
+restaurant.orderPizza('mushroom', 'onion', 'olives', 'spinach');
