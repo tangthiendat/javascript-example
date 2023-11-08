@@ -122,8 +122,8 @@ const mainMenuCopy = [...restaurant.mainMenu];
 console.log(mainMenuCopy);
 
 //Join 2 arrays
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-console.log(menu);
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(menu);
 
 //Iterable: arrays, strings, maps, sets. NOT objects
 const str = 'Dat';
@@ -301,3 +301,13 @@ printGoals(...game.scored);
 //7.
 team1 < team2 && console.log('Team 1 is more likely to win');
 team1 > team2 && console.log('Team 2 is more likely to win');
+
+/** Looping Arrays The for-of Loop */
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+for (const item of menu) {
+  console.log(item);
+}
+
+for (const [i, item] of menu.entries()) {
+  console.log(`${i + 1}: ${item}`);
+}
