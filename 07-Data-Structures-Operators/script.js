@@ -181,8 +181,8 @@ console.log(undefined || null);
 
 console.log(undefined || null || '' || 'Hello' || 23 || 0);
 
-const guests = restaurant.numGuests || 10;
-console.log(guests);
+// const guests = restaurant.numGuests || 10;
+// console.log(guests);
 
 console.log('-----AND-----');
 //=> return the first FALSY value, otherwise return last value.
@@ -192,3 +192,12 @@ console.log(7 && 'Dat');
 console.log('Hello' && 15 && null && 'Dat');
 
 restaurant.orderPizza && restaurant.orderPizza('mushroom', 'spinach');
+
+/** The nullish Coalescing Operator (??)*/
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+//Nullish: null and undefined (NOT 0 or '')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
