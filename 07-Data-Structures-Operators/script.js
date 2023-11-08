@@ -170,3 +170,25 @@ const x = [15, 4, 1];
 add(...x); //20
 
 restaurant.orderPizza('mushroom', 'onion', 'olives', 'spinach');
+
+/** Short-circuiting */
+console.log('-----OR-----');
+//=> return first TRUTHY value, otherwise return last value.
+console.log(3 || 'Dat');
+console.log('' || 'Dat');
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(undefined || null || '' || 'Hello' || 23 || 0);
+
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+console.log('-----AND-----');
+//=> return the first FALSY value, otherwise return last value.
+console.log(0 && 'Dat');
+console.log(7 && 'Dat');
+
+console.log('Hello' && 15 && null && 'Dat');
+
+restaurant.orderPizza && restaurant.orderPizza('mushroom', 'spinach');
