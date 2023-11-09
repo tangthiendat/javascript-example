@@ -353,3 +353,27 @@ console.log(entries);
 for (const [day, { open, close }] of entries) {
   console.log(`On ${day}, we open at ${open} and close at ${close}`);
 }
+
+/** Coding challenge #2 */
+//1.
+for (const [num, player] of game.scored.entries()) {
+  console.log(`Goal ${num}: ${player}`);
+}
+//2.
+const oddValues = Object.values(game.odds);
+let sumOfOdds = 0;
+for (const odd of oddValues) {
+  sumOfOdds += odd;
+}
+console.log(`Average odd: ${sumOfOdds / oddValues.length}`);
+//3.
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr}: ${odd}`);
+}
+//4. Bonus
+const scorers = {};
+for (const player of game.scored) {
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+}
+console.log(scorers);
