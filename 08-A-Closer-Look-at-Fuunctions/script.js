@@ -69,3 +69,15 @@ const transform = function (str, fn) {
 
 transform('Javascript is the best!', upperFirstWord);
 transform('Javascript is the best!', oneWord);
+
+/** Functions Returning Functions */
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey');
+greeterHey('Dat');
+greeterHey('Jonas');
+greet('Hello')('Dat');
