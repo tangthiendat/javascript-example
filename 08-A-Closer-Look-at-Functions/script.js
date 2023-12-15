@@ -203,3 +203,14 @@ document
 poll.displayResult.call({ answers: [5, 2, 3] }, 'string');
 poll.displayResult.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
 poll.displayResult.call({ answers: [1, 5, 3, 9, 6, 1] });
+
+/** Immediately Invoked Function Expression (IIFE) */
+const runOnce = function () {
+  console.log('This will never run again');
+};
+runOnce();
+(function () {
+  console.log('This will never run again');
+})();
+
+(() => console.log('This will ALSO never run again'))();
