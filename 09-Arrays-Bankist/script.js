@@ -77,6 +77,12 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+const calcPrintBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance}€`;
+};
+calcPrintBalance(account1.movements);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -213,3 +219,18 @@ const deposits = movements.filter(function (mov) {
 console.log(deposits);
 const withdrawals = movements.filter(mov => mov < 0);
 console.log(withdrawals);
+
+/** The reduce method */
+const balance = movements.reduce(function (acc, cur, i, arr) {
+  return acc + cur;
+}, 0);
+console.log(balance);
+
+//Maximum value
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) {
+    return acc;
+  }
+  return mov;
+}, movements[0]);
+console.log(max);
