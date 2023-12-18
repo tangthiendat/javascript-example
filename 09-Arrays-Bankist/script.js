@@ -234,3 +234,16 @@ const max = movements.reduce((acc, mov) => {
   return mov;
 }, movements[0]);
 console.log(max);
+
+/** Coding challenge #2 */
+const calcAverageHumanAge = function (ages) {
+  const humanAges = ages.map(dogAge => {
+    return dogAge <= 2 ? dogAge * 2 : 16 + dogAge * 4;
+  });
+  const adultDogs = humanAges.filter(dogAge => dogAge >= 18);
+  const averageHumanAge =
+    adultDogs.reduce((acc, age) => acc + age, 0) / adultDogs.length;
+  return averageHumanAge;
+};
+console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
+console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
