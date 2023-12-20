@@ -237,16 +237,16 @@ btnClose.addEventListener('click', function (event) {
 // console.log(letters.join(' - '));
 
 /** The new at Method */
-const arr = [23, 11, 64];
-console.log(arr[0]);
-console.log(arr.at(0));
-//Getting the last element
-console.log(arr[arr.length - 1]);
-console.log(arr.slice(-1)[0]);
-console.log(arr.at(-1));
+// const arr = [23, 11, 64];
+// console.log(arr[0]);
+// console.log(arr.at(0));
+// //Getting the last element
+// console.log(arr[arr.length - 1]);
+// console.log(arr.slice(-1)[0]);
+// console.log(arr.at(-1));
 
-console.log('dat'.at(0));
-console.log('dat'.at(-1));
+// console.log('dat'.at(0));
+// console.log('dat'.at(-1));
 
 /** Looping Arrays forEach */
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
@@ -403,3 +403,21 @@ const deposit = mov => mov > 0;
 console.log(movements.some(deposit));
 console.log(movements.every(deposit));
 console.log(movements.filter(deposit));
+
+/** flat and flatMap */
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat());
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat(2));
+
+//flat
+const overallBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalance);
+//flatMap
+const overallBalance2 = accounts
+  .flatMap(acc => acc.movements) //1 level deep
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalance2);
