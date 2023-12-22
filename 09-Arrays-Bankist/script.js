@@ -294,23 +294,23 @@ currenciesUnique.forEach(function (value, _, map) {
 
 /** Coding challenge #1 */
 
-const checkDogs = function (dogsJulia, dogsKate) {
-  const correctDogsJulia = [...dogsJulia];
-  correctDogsJulia.splice(0, 1);
-  correctDogsJulia.splice(-2);
-  const dogs = [...correctDogsJulia, ...dogsKate];
-  dogs.forEach(function (dog, idx) {
-    if (dog >= 3) {
-      console.log(`Dog number ${idx + 1} is an adult, and is ${dog} years old`);
-    } else {
-      console.log(`Dog number ${idx + 1} is still a puppy 🐶`);
-    }
-  });
-};
-console.log('---DATA 1---');
-checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
-console.log('---DATA 2---');
-checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
+// const checkDogs = function (dogsJulia, dogsKate) {
+//   const correctDogsJulia = [...dogsJulia];
+//   correctDogsJulia.splice(0, 1);
+//   correctDogsJulia.splice(-2);
+//   const dogs = [...correctDogsJulia, ...dogsKate];
+//   dogs.forEach(function (dog, idx) {
+//     if (dog >= 3) {
+//       console.log(`Dog number ${idx + 1} is an adult, and is ${dog} years old`);
+//     } else {
+//       console.log(`Dog number ${idx + 1} is still a puppy 🐶`);
+//     }
+//   });
+// };
+// console.log('---DATA 1---');
+// checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+// console.log('---DATA 2---');
+// checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
 
 /** The map Method */
 const eurToUsd = 1.1;
@@ -538,3 +538,47 @@ const convertTitleCase = function (title) {
 console.log(convertTitleCase('this is a nice title'));
 console.log(convertTitleCase('this is a LONG title but not too long'));
 console.log(convertTitleCase('and here is another title with an EXAMPLE'));
+
+/** Coding challenge #4 */
+
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+//1.
+dogs.forEach(dog => (dog.recommendedFood = dog.weight ** 0.75 * 28));
+console.log(dogs);
+//2.
+const dogSarah = dogs.find(dog => dog.owners.includes('Sarah'));
+console.log(dogSarah);
+console.log(
+  `Sarah dog is eating too ${
+    dogSarah.curFood > dogSarah.recommendedFood ? 'much' : 'little'
+  }`
+);
+//3.
+const ownersEatTooMuch = dogs
+  .filter(dog => dog.curFood > dog.recommendedFood)
+  .flatMap(dog => dog.owners);
+console.log(ownersEatTooMuch);
+const ownersEatTooLittle = dogs
+  .filter(dog => dog.curFood < dog.recommendedFood)
+  .flatMap(dog => dog.owners);
+console.log(ownersEatTooLittle);
+//4.
+console.log(`${ownersEatTooMuch.join(' and ')}'s dogs eat too much!`);
+console.log(`${ownersEatTooLittle.join(' and ')}'s dogs eat too much!`);
+//5.
+console.log(dogs.some(dog => dog.curFood === dog.recommendedFood));
+//6.
+const checkEatingOk = dog =>
+  dog.curFood > dog.recommendedFood * 0.9 &&
+  dog.curFood < dog.recommendedFood * 1.1;
+console.log(dogs.some(checkEatingOk));
+//7.
+console.log(dogs.filter(checkEatingOk));
+//8.
+const dogsSorted = dogs.slice().sort((a, b) => a.curFood - b.curFood);
+console.log(dogsSorted);
