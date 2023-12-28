@@ -324,3 +324,28 @@ console.log(PI);
 
 console.log(Number('230_000'));
 console.log(parseInt('230_000'));
+
+/** Working with BigInt */
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+
+console.log(1362918473204923027364835943512n);
+console.log(BigInt(1362918));
+//Operations
+console.log(10000n + 10000n);
+console.log(5647456213243655762332n * 100000000n);
+
+const huge = 37843905843059434369776n;
+const num = 23;
+console.log(huge * BigInt(num));
+
+console.log(20n > 15);
+console.log(20n === 20);
+console.log(typeof 20n);
+console.log(20n == 20);
+
+console.log(`${huge} is VERY BIG!!!`);
+
+//Divisions
+console.log(10n / 3n);
+console.log(10 / 3);
