@@ -185,12 +185,28 @@ const updateUI = function (account) {
   calcDisplaySummary(account);
 };
 
-let currentAccount;
+const startLogOutTimer = function () {
+  //Set time out to 5 minutes
+  let time = 120;
+  const tick = function () {
+    const min = `${Math.trunc(time / 60)}`.padStart(2, 0);
+    const sec = `${time % 60}`.padStart(2, 0);
+    labelTimer.textContent = `${min}:${sec}`;
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = 'Login to get started';
+      containerApp.style.opacity = 0;
+    }
+    time--;
+  };
 
-//FAKE ALWAYS LOGGED IN
-currentAccount = account1;
-updateUI(account1);
-containerApp.style.opacity = 100;
+  //Call the timer every second
+  tick();
+  const timer = setInterval(tick, 1000);
+  return timer;
+};
+
+let currentAccount, timer;
 
 btnLogin.addEventListener('click', function (event) {
   event.preventDefault();
@@ -219,6 +235,8 @@ btnLogin.addEventListener('click', function (event) {
     ).format(now);
     //Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
+    if (timer) clearInterval(timer);
+    timer = startLogOutTimer();
     updateUI(currentAccount);
   }
 });
@@ -245,6 +263,10 @@ btnTransfer.addEventListener('click', function (event) {
 
     //Update UI
     updateUI(currentAccount);
+
+    //Reset timer
+    clearInterval(timer);
+    timer = startLogOutTimer();
   }
 });
 
@@ -260,6 +282,9 @@ btnLoan.addEventListener('click', function (event) {
       currentAccount.movementsDates.push(new Date().toISOString());
       //Update UI
       updateUI(currentAccount);
+      //Reset timer
+      clearInterval(timer);
+      timer = startLogOutTimer();
     }, 2500);
   }
 });
@@ -496,7 +521,7 @@ console.log('Waiting...');
 if (ingredients.includes('spinach')) clearTimeout(pizzaTimer);
 
 //setInterval
-setInterval(function () {
-  const now = new Date();
-  console.log(now);
-}, 1000);
+// setInterval(function () {
+//   const now = new Date();
+//   console.log(now);
+// }, 1000);
