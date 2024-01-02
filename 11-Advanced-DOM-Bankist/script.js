@@ -101,3 +101,31 @@ logo.classList.add('j', 's');
 logo.classList.remove('j', 's');
 logo.classList.toggle('j', 's');
 logo.classList.contains('j', 's');
+
+/** Implement the Smooth Scrolling */
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (event) {
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+
+  console.log(event.target.getBoundingClientRect());
+  console.log('Current Scroll (X/Y)', window.pageXOffset, window.pageYOffset);
+  console.log(
+    'height/width viewport',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+  //Scrolling
+  //   window.scrollTo(
+  //     s1coords.left + window.pageXOffset,
+  //     s1coords.top + window.pageYOffset
+  //   );
+  //   window.scrollTo({
+  //     left: s1coords.left + window.pageXOffset,
+  //     top: s1coords.top + window.pageYOffset,
+  //     behavior: 'smooth',
+  //   });
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
