@@ -107,16 +107,16 @@ const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
 
 btnScrollTo.addEventListener('click', function (event) {
-  const s1coords = section1.getBoundingClientRect();
-  console.log(s1coords);
+  //   const s1coords = section1.getBoundingClientRect();
+  //   console.log(s1coords);
 
-  console.log(event.target.getBoundingClientRect());
-  console.log('Current Scroll (X/Y)', window.pageXOffset, window.pageYOffset);
-  console.log(
-    'height/width viewport',
-    document.documentElement.clientHeight,
-    document.documentElement.clientWidth
-  );
+  //   console.log(event.target.getBoundingClientRect());
+  //   console.log('Current Scroll (X/Y)', window.pageXOffset, window.pageYOffset);
+  //   console.log(
+  //     'height/width viewport',
+  //     document.documentElement.clientHeight,
+  //     document.documentElement.clientWidth
+  //   );
   //Scrolling
   //   window.scrollTo(
   //     s1coords.left + window.pageXOffset,
@@ -129,3 +129,18 @@ btnScrollTo.addEventListener('click', function (event) {
   //   });
   section1.scrollIntoView({ behavior: 'smooth' });
 });
+
+/** Types of Events and Event Handler */
+const h1 = document.querySelector('h1');
+const alertH1 = function (event) {
+  alert('addEventListener: Great! You are reading the heading :D');
+};
+//addEventListener: You can have multiples handlers for the same event
+h1.addEventListener('mouseenter', alertH1);
+
+setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
+
+//on[event]: The second function will override the first one
+// h1.onmouseenter = function (event) {
+//   alert('onmouseenter: Great! You are reading the heading :D');
+// };
