@@ -136,11 +136,39 @@ const alertH1 = function (event) {
   alert('addEventListener: Great! You are reading the heading :D');
 };
 //addEventListener: You can have multiples handlers for the same event
-h1.addEventListener('mouseenter', alertH1);
+// h1.addEventListener('mouseenter', alertH1);
 
-setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
+// setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
 
 //on[event]: The second function will override the first one
 // h1.onmouseenter = function (event) {
 //   alert('onmouseenter: Great! You are reading the heading :D');
 // };
+
+/** Event Propagation in Practice */
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+const randomColor = () =>
+  `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+console.log(randomColor());
+
+document
+  .querySelector('.nav__link')
+  .addEventListener('click', function (event) {
+    this.style.backgroundColor = randomColor();
+    console.log('LINK', event.target, event.currentTarget);
+    console.log(event.currentTarget === this);
+
+    //Stop propagation
+    // event.stopPropagation();
+  });
+document
+  .querySelector('.nav__links')
+  .addEventListener('click', function (event) {
+    this.style.backgroundColor = randomColor();
+    console.log('CONTAINER', event.target, event.currentTarget);
+  });
+document.querySelector('.nav').addEventListener('click', function (event) {
+  this.style.backgroundColor = randomColor();
+  console.log('NAV', event.target, event.currentTarget);
+});
