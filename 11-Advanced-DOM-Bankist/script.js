@@ -189,6 +189,16 @@ const handleHover = function (event) {
 nav.addEventListener('mouseover', handleHover.bind(0.5));
 nav.addEventListener('mouseout', handleHover.bind(1));
 
+/** Implementing a Sticky Navigation The Scroll Event */
+const initialcoords = section1.getBoundingClientRect();
+window.addEventListener('scroll', function (event) {
+  if (this.window.scrollY > initialcoords.top) {
+    nav.classList.add('sticky');
+  } else {
+    nav.classList.remove('sticky');
+  }
+});
+
 /** Types of Events and Event Handler */
 // const h1 = document.querySelector('h1');
 // const alertH1 = function (event) {
