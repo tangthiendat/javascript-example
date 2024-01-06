@@ -93,10 +93,23 @@ class PersonCl {
       alert(`${name} is not a full name`);
     }
   }
+
+  get fullName() {
+    return this._fullName;
+  }
+
+  static hey() {
+    console.log('Hey there');
+  }
 }
 const jessica = new PersonCl('Jessica', 1996);
 console.log(jessica);
 jessica.calcAge();
+
+// Person.hey = function () {
+//   console.log('Hey there 🙋‍♂️');
+// };
+Person.hey();
 
 console.log(jessica.__proto__ === PersonCl.prototype);
 
