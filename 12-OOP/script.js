@@ -27,3 +27,17 @@ console.log(dat.__proto__);
 console.log(dat.__proto__ === Person.prototype);
 
 console.log(Person.prototype.isPrototypeOf(dat));
+
+/** Prototypal Inheritance on Built-in Object */
+console.log(dat.__proto__);
+console.log(dat.__proto__.__proto__);
+
+console.dir(Person.prototype.constructor);
+const arr = [3, 7, 2, 0, 5, 1, 3];
+console.log(arr.__proto__ == Array.prototype);
+console.log(arr.__proto__.__proto__);
+
+Array.prototype.unique = function () {
+  return [...new Set(this)];
+};
+console.log(arr.unique());
