@@ -4,16 +4,8 @@ const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 
 ///////////////////////////////////////
-const getCountryData = function (country) {
-  const request = new XMLHttpRequest();
-  request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
-  request.send();
-
-  request.addEventListener('load', function () {
-    console.log(this.responseText);
-    const [data] = JSON.parse(this.responseText);
-    console.log(data);
-    const html = `<article class="country">
+const renderCountry = function (data) {
+  const html = `<article class="country">
           <img class="country__img" src="${data.flags.svg}" />
           <div class="country__data">
             <h3 class="country__name">${data.name.common}</h3>
@@ -29,10 +21,32 @@ const getCountryData = function (country) {
             }</p>
           </div>
         </article>`;
-    countriesContainer.insertAdjacentHTML('beforeend', html);
-    countriesContainer.style.opacity = 1;
+  countriesContainer.insertAdjacentHTML('beforeend', html);
+  countriesContainer.style.opacity = 1;
+};
+const getCountryAndNeighbor = function (country) {
+  const request = new XMLHttpRequest();
+  request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
+  request.send();
+
+  request.addEventListener('load', function () {
+    console.log(this.responseText);
+    const [data] = JSON.parse(this.responseText);
+    console.log(data);
+    //Render country 1
+    renderCountry(data);
+    const neighbor = data.borders?.[0];
+    if (!neighbor) return;
+    //AJAX call country 2
+    const request2 = new XMLHttpRequest();
+    request2.open('GET', `https://restcountries.com/v3.1/alpha/${neighbor}`);
+    request2.send();
+    request2.addEventListener('load', function () {
+      const [data2] = JSON.parse(this.responseText);
+      console.log(data2);
+      //Render country 2
+      renderCountry(data2);
+    });
   });
 };
-
-getCountryData('vietnam');
-getCountryData('usa');
+getCountryAndNeighbor('vietnam');
