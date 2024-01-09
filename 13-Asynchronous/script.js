@@ -61,7 +61,7 @@ const renderCountry = function (data, className = '') {
           </div>
         </article>`;
   countriesContainer.insertAdjacentHTML('beforeend', html);
-  //   countriesContainer.style.opacity = 1;
+  countriesContainer.style.opacity = 1;
 };
 // const getCountryAndNeighbor = function (country) {
 //   const request = new XMLHttpRequest();
@@ -158,30 +158,30 @@ const getCountryData = function (country) {
 };
 
 /** Building A Simple Promise */
-const lotteryPromise = new Promise(function (resolve, reject) {
-  console.log('Lottery draw is happening 🔮');
-  setTimeout(function () {
-    if (Math.random() >= 0.5) {
-      resolve('You WIN 💰');
-    } else {
-      reject(new Error('You lost your money 💩'));
-    }
-  }, 2000);
-});
+// const lotteryPromise = new Promise(function (resolve, reject) {
+//   console.log('Lottery draw is happening 🔮');
+//   setTimeout(function () {
+//     if (Math.random() >= 0.5) {
+//       resolve('You WIN 💰');
+//     } else {
+//       reject(new Error('You lost your money 💩'));
+//     }
+//   }, 2000);
+// });
 
-lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
+// lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
 //Promisifying setTimeout
-const wait = function (seconds) {
-  return new Promise(function (resolve) {
-    setTimeout(resolve, seconds * 1000);
-  });
-};
-wait(2)
-  .then(res => {
-    console.log('I waited for 2 seconds');
-    return wait(1);
-  })
-  .then(() => console.log('I waited for 1 seconds'));
+// const wait = function (seconds) {
+//   return new Promise(function (resolve) {
+//     setTimeout(resolve, seconds * 1000);
+//   });
+// };
+// wait(2)
+//   .then(res => {
+//     console.log('I waited for 2 seconds');
+//     return wait(1);
+//   })
+//   .then(() => console.log('I waited for 1 seconds'));
 
 /** Promisify Geolocation API */
 const getPosition = function () {
@@ -194,4 +194,22 @@ const getPosition = function () {
   });
 };
 
-getPosition().then(pos => console.log(pos));
+// getPosition().then(pos => console.log(pos));
+
+/** Consuming Promises with AsyncAwait */
+const whereAmI = async function (country) {
+  //Geolocation
+  //   const pos = await getPosition();
+  //   const { latitude: lat, longitude: lng } = pos.coords;
+  //   //Reverse geocoding
+  //   const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+  //   const dataGeo = await resGeo.json();
+  //   console.log(dataGeo);
+  //Country data
+  const res = await fetch(`https://restcountries.com/v3.1/name/${country}`);
+  const data = await res.json();
+  console.log(data);
+  renderCountry(data[0]);
+};
+whereAmI('vietnam');
+console.log('FIRST');
