@@ -182,3 +182,16 @@ wait(2)
     return wait(1);
   })
   .then(() => console.log('I waited for 1 seconds'));
+
+/** Promisify Geolocation API */
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    //     navigator.geolocation.getCurrentPosition(
+    //       position => resolve(position),
+    //       err => reject(err)
+    //     );
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+getPosition().then(pos => console.log(pos));
